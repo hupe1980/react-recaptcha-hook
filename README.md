@@ -1,6 +1,6 @@
 # react-recaptcha-hook
 
-> React hook for google-recaptcha v3
+> React hook for [google-recaptcha v3](https://developers.google.com/recaptcha/docs/v3)
 
 ## Install
 
