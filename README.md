@@ -15,7 +15,7 @@ yarn add react-recaptcha-hook
 ## How to use
 
 ```javascript
-import React from 'react';
+import React, { useEffect } from 'react';
 import useRecaptcha, { Badge } from 'react-recaptcha-hook';
 
 const RecaptchaComponent = ({ action, sitekey, onToken }) => {
