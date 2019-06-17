@@ -18,8 +18,8 @@ yarn add react-recaptcha-hook
 import React from 'react';
 import useRecaptcha, { Badge } from 'react-recaptcha-hook';
 
-const RecaptchaComponent = ({ action, siteKey, onToken }) => {
-  const execute = useRecaptcha({ siteKey, hideDefaultBadge: true });
+const RecaptchaComponent = ({ action, sitekey, onToken }) => {
+  const execute = useRecaptcha({ sitekey, hideDefaultBadge: true });
 
   useEffect(() => {
     const getToken = async () => {
@@ -35,6 +35,11 @@ const RecaptchaComponent = ({ action, siteKey, onToken }) => {
 
 export default RecaptchaComponent;
 ```
+
+## Server side validation
+
+- [Verify the User's Response](https://developers.google.com/recaptcha/docs/verify)
+- [Domain/Package Name Validation](https://developers.google.com/recaptcha/docs/domain_validation)
 
 ## License
 

@@ -2,21 +2,21 @@ import * as React from 'react';
 import useScript from 'react-script-hook';
 
 export interface RecaptchaProps {
-  siteKey: string;
+  sitekey: string;
   hideDefaultBadge?: boolean;
 }
 
 export default function useRecaptcha({
-  siteKey,
+  sitekey,
   hideDefaultBadge = false
 }: RecaptchaProps) {
   const { promise, resolve } = React.useMemo(createPromiseResolver, [
-    siteKey,
+    sitekey,
     hideDefaultBadge
   ]);
 
   useScript({
-    src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
+    src: `https://www.google.com/recaptcha/api.js?render=${sitekey}`,
     onload: () =>
       (window as any).grecaptcha.ready(() => {
         resolve((window as any).grecaptcha);
@@ -32,15 +32,19 @@ export default function useRecaptcha({
   return React.useCallback(
     async (action: string) => {
       const grecaptcha = await promise;
-      return grecaptcha.execute(siteKey, { action });
+      return grecaptcha.execute(sitekey, { action });
     },
-    [siteKey, promise]
+    [sitekey, promise]
   );
 }
 
 interface Recaptcha {
   ready(): Promise<void>;
-  execute(siteKey: string, config: { action: string }): void;
+  render(
+    container: HTMLElement,
+    config: { theme?: 'dark' | 'light'; size?: 'compact' | 'normal' }
+  ): void;
+  execute(sitekey: string, config: { action: string }): void;
 }
 
 const isBrowser =
