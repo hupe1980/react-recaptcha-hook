@@ -1,6 +1,6 @@
 {
   "name": "react-recaptcha-hook",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React hook for google-recaptcha v3",
   "keywords": [
     "react",

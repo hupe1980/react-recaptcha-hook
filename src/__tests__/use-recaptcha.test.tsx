@@ -4,11 +4,11 @@ import useRecaptcha from '../use-recaptcha';
 
 describe('useRecaptcha', () => {
   it('should append a script tag', async () => {
-    const siteKey = 'TEST';
+    const sitekey = 'TEST';
 
     expect(document.querySelectorAll('script').length).toBe(0);
 
-    renderHook(() => useRecaptcha({ siteKey }));
+    renderHook(() => useRecaptcha({ sitekey }));
 
     const script = document.querySelector('script');
 
@@ -16,7 +16,7 @@ describe('useRecaptcha', () => {
 
     if (script) {
       expect(script.src).toEqual(
-        `https://www.google.com/recaptcha/api.js?render=${siteKey}`
+        `https://www.google.com/recaptcha/api.js?render=${sitekey}`
       );
     }
   });
