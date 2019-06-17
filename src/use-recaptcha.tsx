@@ -29,13 +29,10 @@ export default function useRecaptcha({
     }
   }, [hideDefaultBadge]);
 
-  return React.useCallback(
-    async (action: string) => {
-      const grecaptcha = await promise;
-      return grecaptcha.execute(sitekey, { action });
-    },
-    [sitekey, promise]
-  );
+  return async (action: string) => {
+    const grecaptcha = await promise;
+    return grecaptcha.execute(sitekey, { action });
+  };
 }
 
 interface Recaptcha {
