@@ -19,15 +19,18 @@ export default function useRecaptcha({
     src: `https://www.google.com/recaptcha/api.js?render=${sitekey}`,
     onload: () =>
       (window as any).grecaptcha.ready(() => {
+        if (isBrowser && hideDefaultBadge) {
+            injectStyle('.grecaptcha-badge { visibility: hidden; }');
+        }
         resolve((window as any).grecaptcha);
       })
   });
 
   React.useEffect(() => {
-    if (isBrowser && hideDefaultBadge) {
-      injectStyle('.grecaptcha-badge { visibility: hidden; }');
+    if ((window as any).grecaptcha) {
+      resolve((window as any).grecaptcha)
     }
-  }, [hideDefaultBadge]);
+  }, [resolve]);
 
   return async (action: string) => {
     const grecaptcha = await promise;
