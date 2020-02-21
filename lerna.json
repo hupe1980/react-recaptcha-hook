@@ -5,7 +5,6 @@
         },
         "publish": {
             "allowBranch": "master",
-            "bump": "patch",
             "conventionalCommits": true,
             "message": "chore(release): Publish"
         }
