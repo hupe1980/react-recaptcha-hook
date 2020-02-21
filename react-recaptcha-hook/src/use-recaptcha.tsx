@@ -6,35 +6,40 @@ export interface RecaptchaProps {
     hideDefaultBadge?: boolean;
 }
 
-export default function useRecaptcha({
+export function useRecaptcha({
     sitekey,
     hideDefaultBadge = false,
 }: RecaptchaProps) {
-    const { promise, resolve } = React.useMemo(createPromiseResolver, [
-        sitekey,
-        hideDefaultBadge,
-    ]);
+    const [recaptcha, setRecaptcha] = React.useState<Recaptcha | undefined>();
+
+    React.useEffect(() => {
+        if (isBrowser && hideDefaultBadge) {
+            injectStyle('.grecaptcha-badge { visibility: hidden; }');
+        }
+    }, [hideDefaultBadge]);
 
     useScript({
         src: `https://www.google.com/recaptcha/api.js?render=${sitekey}`,
         onload: () =>
             (window as any).grecaptcha.ready(() => {
-                if (isBrowser && hideDefaultBadge) {
-                    injectStyle('.grecaptcha-badge { visibility: hidden; }');
-                }
-                resolve((window as any).grecaptcha);
+                setRecaptcha((window as any).grecaptcha);
             }),
     });
 
     React.useEffect(() => {
         if ((window as any).grecaptcha) {
-            resolve((window as any).grecaptcha);
+            (window as any).grecaptcha.ready(() => {
+                setRecaptcha((window as any).grecaptcha);
+            });
         }
-    }, [resolve]);
+    }, []);
 
-    return async (action: string) => {
-        const grecaptcha = await promise;
-        return grecaptcha.execute(sitekey, { action });
+    return (action: string) => {
+        return new Promise<string>(resolve => {
+            if (recaptcha) {
+                resolve(recaptcha.execute(sitekey, { action }));
+            }
+        });
     };
 }
 
@@ -44,21 +49,11 @@ interface Recaptcha {
         container: HTMLElement,
         config: { theme?: 'dark' | 'light'; size?: 'compact' | 'normal' },
     ): void;
-    execute(sitekey: string, config: { action: string }): void;
+    execute(sitekey: string, config: { action: string }): string;
 }
 
 const isBrowser =
     typeof window !== 'undefined' && typeof window.document !== 'undefined';
-
-const createPromiseResolver = () => {
-    let resolve: (grecaptcha: Recaptcha) => void = () => {};
-
-    const promise = new Promise<Recaptcha>(r => {
-        resolve = r;
-    });
-
-    return { resolve, promise };
-};
 
 const injectStyle = (rule: string) => {
     const styleEl = document.createElement('style') as HTMLStyleElement;

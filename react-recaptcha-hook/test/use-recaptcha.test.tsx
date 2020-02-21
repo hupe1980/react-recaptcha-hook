@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
 
-import useRecaptcha from '../use-recaptcha';
+import { useRecaptcha } from '../src';
 
 describe('useRecaptcha', () => {
     it('should append a script tag', async () => {

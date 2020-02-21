@@ -23,11 +23,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: yarn install, test and build
       run: |
-        npm ci
-        npm run lint
-        npm run test
-        npm run build --if-present
+        yarn install --frozen-lockfile
+        yarn lint
+        yarn test
+        yarn build
       env:
         CI: true

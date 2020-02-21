@@ -1,7 +1,10 @@
 module.exports = {
+  rootDir: './',
+  projects: ['<rootDir>'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.[t|j]sx?$': 'babel-jest'
   },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
+  testURL: 'http://localhost',
+  testMatch: ['<rootDir>/*/test/**/*.test.ts?(x)'],
+  testPathIgnorePatterns: ['node_modules', 'dist']
 };

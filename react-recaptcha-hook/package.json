@@ -1,0 +1,37 @@
+{
+  "name": "react-recaptcha-hook",
+  "version": "1.0.9",
+  "description": "React hook for google-recaptcha v3",
+  "keywords": [
+    "react",
+    "hook",
+    "google",
+    "recaptcha",
+    "grecaptcha",
+    "v3"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hupe1980/react-recaptcha-hook"
+  },
+  "main": "dist/react-recaptcha-hook.cjs.js",
+  "module": "dist/react-recaptcha-hook.esm.js",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0"
+  },
+  "dependencies": {
+    "react-script-hook": "^1.0.12"
+  }
+}
