@@ -62,6 +62,7 @@ typings/
 
 # build
 lib
+dist
 
 # mac
 .DS_Store

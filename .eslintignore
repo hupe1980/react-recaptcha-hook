@@ -1,5 +1,7 @@
 /.git
 /coverage
-/lib
-
+jest.config.js 
+babel.config.js
+lib
+dist
 node_modules
