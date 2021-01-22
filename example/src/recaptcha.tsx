@@ -7,7 +7,7 @@ export interface RecaptchaProps {
   onToken: Function;
 }
 
-export const Recaptcha: FC<RecaptchaProps> = props => {
+export const Recaptcha: FC<RecaptchaProps> = (props) => {
   const { sitekey, action, onToken } = props;
   const execute = useRecaptcha({ sitekey, hideDefaultBadge: true });
 

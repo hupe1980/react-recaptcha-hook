@@ -35,7 +35,7 @@ export function useRecaptcha({
     }, []);
 
     return (action: string) => {
-        return new Promise<string>(resolve => {
+        return new Promise<string>((resolve) => {
             if (recaptcha) {
                 resolve(recaptcha.execute(sitekey, { action }));
             }
