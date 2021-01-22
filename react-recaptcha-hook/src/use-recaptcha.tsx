@@ -35,9 +35,11 @@ export function useRecaptcha({
     }, []);
 
     return (action: string) => {
-        return new Promise<string>((resolve) => {
+        return new Promise<string>((resolve, reject) => {
             if (recaptcha) {
                 resolve(recaptcha.execute(sitekey, { action }));
+            } else {
+                reject(new Error('Recaptcha script not available'));
             }
         });
     };
