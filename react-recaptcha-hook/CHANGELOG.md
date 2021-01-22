@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/hupe1980/react-recaptcha-hook/compare/react-recaptcha-hook@1.1.1...react-recaptcha-hook@1.2.0) (2021-01-22)
+
+
+### Features
+
+* allow react 17 as a peer dependenc ([2a69975](https://github.com/hupe1980/react-recaptcha-hook/commit/2a69975abecd911d1eb8f92c4161d48fb061e769))
+* return a rejected promise in the case the script is not available ([7a314c1](https://github.com/hupe1980/react-recaptcha-hook/commit/7a314c1eea7658d343b558e6ad949c8e0ed018a0))
+
+
+
+
+
 ## [1.1.1](https://github.com/hupe1980/react-recaptcha-hook/compare/react-recaptcha-hook@1.1.0...react-recaptcha-hook@1.1.1) (2020-02-21)
 
 
