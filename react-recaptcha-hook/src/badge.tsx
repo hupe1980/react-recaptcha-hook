@@ -4,7 +4,7 @@ export interface BadgeProps {
     [key: string]: any;
 }
 
-export const Badge: React.FC<BadgeProps> = props => {
+export const Badge: React.FC<BadgeProps> = (props) => {
     return (
         <span {...props}>
             This site is protected by reCAPTCHA and the Google{' '}
