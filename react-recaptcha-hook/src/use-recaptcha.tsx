@@ -1,14 +1,17 @@
 import * as React from 'react';
+
 import useScript from 'react-script-hook';
 
 export interface RecaptchaProps {
     sitekey: string;
     hideDefaultBadge?: boolean;
+    checkForExisting?: boolean;
 }
 
 export function useRecaptcha({
     sitekey,
     hideDefaultBadge = false,
+    checkForExisting = true,
 }: RecaptchaProps) {
     const [recaptcha, setRecaptcha] = React.useState<Recaptcha | undefined>();
 
@@ -24,6 +27,7 @@ export function useRecaptcha({
             (window as any).grecaptcha.ready(() => {
                 setRecaptcha((window as any).grecaptcha);
             }),
+        checkForExisting,
     });
 
     React.useEffect(() => {
