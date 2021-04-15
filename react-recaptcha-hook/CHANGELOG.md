@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/hupe1980/react-recaptcha-hook/compare/react-recaptcha-hook@1.2.0...react-recaptcha-hook@1.2.1) (2021-04-15)
+
+**Note:** Version bump only for package react-recaptcha-hook
+
+
+
+
+
 # [1.2.0](https://github.com/hupe1980/react-recaptcha-hook/compare/react-recaptcha-hook@1.1.1...react-recaptcha-hook@1.2.0) (2021-01-22)
 
 
