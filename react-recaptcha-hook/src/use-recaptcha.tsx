@@ -11,7 +11,7 @@ export interface RecaptchaProps {
 export function useRecaptcha({
     sitekey,
     hideDefaultBadge = false,
-    checkForExisting = false,
+    checkForExisting = true,
 }: RecaptchaProps) {
     const [recaptcha, setRecaptcha] = React.useState<Recaptcha | undefined>();
 
