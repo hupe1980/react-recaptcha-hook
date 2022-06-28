@@ -21,8 +21,8 @@
     "dist"
   ],
   "peerDependencies": {
-    "react": "^16.8.6 || ^17",
-    "react-dom": "^16.8.6 || ^17"
+    "react": "^16.8.6 || ^17 || ^18",
+    "react-dom": "^16.8.6 || ^17 || ^18"
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.3",
